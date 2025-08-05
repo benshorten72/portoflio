@@ -10,9 +10,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@react-three/drei": "^10.6.1",
+    "@react-three/postprocessing": "^3.0.4",
     "leva": "^0.10.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
+    "three": "^0.179.1",
     "vite-plugin-glsl": "^1.5.1"
   },
   "devDependencies": {
@@ -26,6 +29,7 @@
     "globals": "^16.3.0",
     "typescript": "~5.8.3",
     "typescript-eslint": "^8.35.1",
-    "vite": "^7.0.4"
+    "vite": "^7.0.4",
+    "vite-plugin-restart": "^1.0.0"
   }
 }

@@ -67,7 +67,7 @@ useEffect(() => {
   return (
     <mesh position={position} ref={ref} rotation={rotation}>
       <boxGeometry args={size} />
-      <planeGeometry args={[1000, 1000, 10, 10]} />
+      <planeGeometry args={[500, 500, 4, 4]} />
       <shaderMaterial
         fragmentShader={fragmentShader}
         vertexShader={vertexShader}
