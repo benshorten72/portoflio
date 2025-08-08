@@ -6,30 +6,19 @@ import vertexShader from "../shaders/particalVertex.glsl"
 
 
 
-export const BasicParticles = (props: { count: any; shape: any; }) => {
-  const { count, shape } = props;
+export const BasicParticles = (props: { count: any; }) => {
+  const { count} = props;
 
   // This reference gives us direct access to our points
   const points = useRef<THREE.Points>(null!);
+  const radius = 4;
 
   // Generate our positions attributes array
   const particlesPosition = useMemo(() => {
     const positions = new Float32Array(count * 3);
 
-    if (shape === "box") {
       for (let i = 0; i < count; i++) {
-        let x = (Math.random() - 0.5) * 2;
-        let y = (Math.random() - 0.5) * 2;
-        let z = (Math.random() - 0.5) * 2;
-
-        positions.set([x, y, z], i * 3);
-      }
-    }
-
-    if (shape === "sphere") {
-      const distance = 1;
-     
-      for (let i = 0; i < count; i++) {
+        const distance = Math.sqrt(Math.random()) * radius;
         const theta = THREE.MathUtils.randFloatSpread(360); 
         const phi = THREE.MathUtils.randFloatSpread(360); 
 
@@ -39,33 +28,25 @@ export const BasicParticles = (props: { count: any; shape: any; }) => {
 
         positions.set([x, y, z], i * 3);
       }
-    }
-    return positions;
-  }, [count, shape]);
 
-const uniforms = useMemo(
-    () => ({
-      u_test: { value: 1.0 },
-    }),
-    []
-  );
+    return positions;
+  }, [count]);
+
+ const uniforms = useMemo(() => ({
+    uTime: {
+      value: 0.0
+    },
+    uRadius: {
+      value: radius
+    }
+  }), [])
+
 useFrame((state) => {
   const { clock } = state;
+  (points.current.material as THREE.ShaderMaterial).uniforms.uTime.value = clock.elapsedTime/2;
 
-  for (let i = 0; i < count; i++) {
-    const i3 = i * 3;
-    const strength = 5
-    const scale = 0.001
-    points.current.geometry.attributes.position.array[i3] +=
-      Math.sin(clock.elapsedTime + Math.random() * strength) * scale;
-    points.current.geometry.attributes.position.array[i3 + 1] +=
-      Math.cos(clock.elapsedTime + Math.random() * strength) * scale;
-    points.current.geometry.attributes.position.array[i3 + 2] +=
-      Math.sin(clock.elapsedTime + Math.random() * strength) * scale;
-  }
-
-  points.current.geometry.attributes.position.needsUpdate = true;
 });
+
   return (
     <points ref={points}>
       <bufferGeometry>
@@ -74,6 +55,7 @@ useFrame((state) => {
                 args={[particlesPosition, 3]}    />
       </bufferGeometry>
 	      <shaderMaterial
+        blending={THREE.AdditiveBlending}
         depthWrite={false}
         fragmentShader={fragmentShader}
         vertexShader={vertexShader}

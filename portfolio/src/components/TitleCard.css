@@ -1,0 +1,53 @@
+.TitleCardText{
+    font-size: var(--size-10);
+    color: var(--orange-font-color);
+    padding: 0;
+    line-height: 1.2;
+    letter-spacing: var(--size-1);
+    width: 100%;
+    background: -webkit-linear-gradient(var(--orange-font-color), var(--yellow-font-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+    overflow: hidden;   
+  white-space: nowrap;           
+  border-right: 2px solid black; 
+  animation: revealText .9s cubic-bezier(.1, .2, 0.1, .1)  forwards;
+  animation-delay: 0.5s;       
+  width: 0; 
+}
+.TitleCardSubText{
+    font-size: var(--size-9);
+    color: var(--greyed-font-color);
+    padding: 0;
+    margin: 0;
+    line-height:  var(--size-1);
+    width: 100%;
+    font-family: var(--sub-font);
+    letter-spacing: var(--size-3);
+    font-weight: 400;
+}
+
+.TitleCardWrapper{
+    margin-top: var(--size-10);
+    padding: 5%;
+    opacity: 0;
+  animation: fadeIn 1s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+@keyframes revealText {
+  to {
+    width: 100%; 
+  }
+}
+@media (max-width: 1400px) {
+  .TitleCardText,
+  .TitleCardSubText {
+    line-height: var(--size-10);
+  }
+}

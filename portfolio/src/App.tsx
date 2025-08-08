@@ -1,52 +1,41 @@
 import './App.css'
-import * as THREE from 'three'
-import { Canvas } from '@react-three/fiber';
-import { OrbitControls, Sky } from "@react-three/drei";
-import { EffectComposer, Outline } from "@react-three/postprocessing";
+import { Canvas } from '@react-three/fiber'
+import { InfoCard } from "./components/InfoCard";
+import { NavigationBar } from "./components/NavigationBar";
+import BackgroundScene from "./components/BackgroundScene"
+import { useRef, useState } from 'react';
+import { TitleCard } from './components/TitleCard';
 
-import { Ocean } from "./components/Ocean";
-import { Cube } from "./components/Cube";
-import { BasicParticles } from "./components/BasicParticals";
+const textDummy = "orem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
 
 function App() {
+
+  const [active, setActive] = useState("home");
+  const cameraPositions: Record<string, [number, number, number]> = {
+    "home":[10,20,10],
+    "portfolio":[0,0,0],
+    "career":[4,3,2]
+  }
+  // we define cameraPos, and set camera pos as the setter function in this. We then call setCameraPos when button is clicked
+  const [cameraPos, setCameraPos] = useState<[number, number, number]>(cameraPositions.home);
+  const [count, setCount] = useState(6000);
+
   return (
-<Canvas camera={{ position: [3, 2, 5], fov: 120 }} shadows>
-  <OrbitControls />
-
-  <ambientLight intensity={0.3} />
-
-  <directionalLight
-    position={[5, 10, 10]} 
-    intensity={5.5}
-    castShadow
-    shadow-mapSize-width={5448}
-    shadow-mapSize-height={5448}
-    shadow-camera-near={1}
-    shadow-camera-far={50}
-    shadow-camera-left={-20}
-    shadow-camera-right={20}
-    shadow-camera-top={20}
-    shadow-camera-bottom={-20}
-  />
-<hemisphereLight intensity={0.5} groundColor={0x444444} />
-
-
-  <Cube position={[0, 0, 0]} size={[1, 1, 1]} rotation={[0, 0, 0]} />
-   <Ocean position={[0, 0, 0]} size={[1, 1, 1]} rotation={[-Math.PI / 2, 0, 0]}></Ocean>
-
-
-  <Sky
-        sunPosition={[0, 1, 0]}   // Move the sun up
-        turbidity={0.1}           // Keep it super clean
-        rayleigh={0.2}            // Soft blue
-        mieCoefficient={0.0005}   // Very low haze
-        mieDirectionalG={0.1}     // No directional scattering
-      />
-</Canvas>
-
+    <>
+            
+      <BackgroundScene count={count} cameraPosition={cameraPos} />
+      <nav className="navbar">
+        <button onClick={() => {setActive("home"); setCameraPos(cameraPositions.home)}}>Home</button>
+        <button onClick={() => {setActive("portfolio"),  setCameraPos(cameraPositions.portfolio)}}>Portfolio</button>
+        <button onClick={() => {setActive("career"),  setCameraPos(cameraPositions.career)}}>Career/Background</button>
+      </nav>
+      <main>
+        {active === "home" && <TitleCard />}
+        {active === "portfolio" && <InfoCard cardTitle="Portfolio" cardText='lol' />}
+        {active === "contact" && <InfoCard cardTitle="Career/Background" cardText='lol' />}
+      </main>
+    </>
   );
 }
-
-
 
 export default App
