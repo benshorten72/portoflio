@@ -11,28 +11,37 @@ const textDummy = "orem Ipsum is simply dummy text of the printing and typesetti
 function App() {
 
   const cameraPositions: Record<string, [number, number, number]> = {
-    "home":[10,20,13],
+    "home":[8,19,13],
     "portfolio":[3,1,1],
     "career":[0,0,0]
   }
    const cameraLookAtPositions: Record<string, [number, number, number]> = {
-    "home":[0,-30,12],
+    "home":[1,-31,11],
     "portfolio":[.5,0,2],
     "career":[0,3,0]
+  }
+
+  const infoCardDimensions: Record<string,[string,number]> = {
+    "home":["right",100],
+    "portfolio":["left",50],
+    "career":["right",20]
   }
   // we define cameraPos, and set camera pos as the setter function in this. We then call setCameraPos when button is clicked
   const [active, setActive] = useState("home");
   const [cameraPos, setCameraPos] = useState<[number, number, number]>(cameraPositions.home);
   const [count, setCount] = useState(8000);
   const [cameraLookAt, setCameraLookAt] = useState<[number, number, number]>(cameraLookAtPositions.home)
-
+  const [dimensions, setCardDimensions] = useState<[string,number]>(infoCardDimensions.home)
+  
   const handleClick = (navElement:string) =>{
     if (active !== navElement){
         setActive(navElement)
         setCameraPos(cameraPositions[navElement])
         setCameraLookAt(cameraLookAtPositions[navElement])
+        setCardDimensions(infoCardDimensions[navElement])
     }
   }
+
   return (
     <>
       <BackgroundScene count={count} cameraPosition={cameraPos} origin={cameraLookAt} />
@@ -41,10 +50,11 @@ function App() {
         <button onClick={() => handleClick("portfolio")}>Portfolio</button>
         <button onClick={() => handleClick("career")}>Career/Background</button>
       </nav>
+
       <main>
         {active === "home" && <TitleCard />}
-        {active === "portfolio" && <InfoCard cardTitle="Portfolio" cardText='lol' />}
-        {active === "contact" && <InfoCard cardTitle="Career/Background" cardText='lol' />}
+        {active === "portfolio" && <InfoCard cardTitle="Portfolio" cardText='lol' infoCardDimensions={dimensions} />}
+        {active === "career" && <InfoCard cardTitle="Career/Background" cardText='lol' infoCardDimensions={dimensions} />}
       </main>
     </>
   );

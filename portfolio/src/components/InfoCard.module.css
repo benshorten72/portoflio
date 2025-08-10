@@ -1,11 +1,14 @@
 .card{
   padding: 1%;
-  background-color: #242424;
+  background-color: #242424b1;
   border-radius: 2.5rem;
-  backdrop-filter: blur(10px);
-  margin: 5% 0;
-  width: 100%;
+  backdrop-filter: blur(.5px);
+  margin: 5% 0% 0% 40%;
+  width: 60%;
   max-width: 100%;
+
+
+animation: fadeInOpacity .22s cubic-bezier(0.42, 0, 1, 1) 1 forwards;
 }
 
 .cardText{
@@ -18,4 +21,14 @@
 margin: 0%;
 font-size: 2.5rem;
 padding: 1%;
+}
+
+
+@keyframes fadeInOpacity {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
 }
