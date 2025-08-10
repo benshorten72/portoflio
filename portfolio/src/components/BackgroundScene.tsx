@@ -5,19 +5,22 @@ import { BasicParticles } from './BasicParticals'
 import { useEffect } from 'react';
 import * as THREE from 'three';
 
-function CameraController ({position}: {position:[number,number,number]}){
+function CameraController ({position, origin}: {position:[number,number,number], origin:[number, number, number]}){
+
   const { camera } = useThree();
+  const target = new THREE.Vector3();
 
   useFrame(() =>{
     // move camera to position then look at origin
     camera.position.lerp(new THREE.Vector3(...position),0.05)
-    camera.lookAt(0,0,0)
-  }), [position];
+    target.lerp(new THREE.Vector3(...origin),0.1)
+    camera.lookAt(target)
+  }), [position,origin];
   return null;
 }
 
-export default function BackgroundScene(props: {count:number, cameraPosition:[number,number,number]}) {
-  const { count, cameraPosition} = props;
+export default function BackgroundScene(props: {count:number, cameraPosition:[number,number,number], origin:[number,number,number]}) {
+  const { count, cameraPosition, origin} = props;
 
   return (
     <Canvas 
@@ -31,7 +34,7 @@ export default function BackgroundScene(props: {count:number, cameraPosition:[nu
      camera={{ position: cameraPosition }}
     >
       {/* Your 3D background */}
-      <CameraController position={cameraPosition}></CameraController>
+      <CameraController position={cameraPosition} origin={origin}></CameraController>
       <ambientLight intensity={0.5} />
       <BasicParticles count={count}></BasicParticles>
     </Canvas>

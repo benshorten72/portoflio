@@ -10,24 +10,36 @@ const textDummy = "orem Ipsum is simply dummy text of the printing and typesetti
 
 function App() {
 
-  const [active, setActive] = useState("home");
   const cameraPositions: Record<string, [number, number, number]> = {
-    "home":[10,20,10],
-    "portfolio":[0,0,0],
-    "career":[4,3,2]
+    "home":[10,20,13],
+    "portfolio":[3,1,1],
+    "career":[0,0,0]
+  }
+   const cameraLookAtPositions: Record<string, [number, number, number]> = {
+    "home":[0,-30,12],
+    "portfolio":[.5,0,2],
+    "career":[0,3,0]
   }
   // we define cameraPos, and set camera pos as the setter function in this. We then call setCameraPos when button is clicked
+  const [active, setActive] = useState("home");
   const [cameraPos, setCameraPos] = useState<[number, number, number]>(cameraPositions.home);
-  const [count, setCount] = useState(6000);
+  const [count, setCount] = useState(8000);
+  const [cameraLookAt, setCameraLookAt] = useState<[number, number, number]>(cameraLookAtPositions.home)
 
+  const handleClick = (navElement:string) =>{
+    if (active !== navElement){
+        setActive(navElement)
+        setCameraPos(cameraPositions[navElement])
+        setCameraLookAt(cameraLookAtPositions[navElement])
+    }
+  }
   return (
     <>
-            
-      <BackgroundScene count={count} cameraPosition={cameraPos} />
+      <BackgroundScene count={count} cameraPosition={cameraPos} origin={cameraLookAt} />
       <nav className="navbar">
-        <button onClick={() => {setActive("home"); setCameraPos(cameraPositions.home)}}>Home</button>
-        <button onClick={() => {setActive("portfolio"),  setCameraPos(cameraPositions.portfolio)}}>Portfolio</button>
-        <button onClick={() => {setActive("career"),  setCameraPos(cameraPositions.career)}}>Career/Background</button>
+        <button onClick={() => handleClick("home")}>Home</button>
+        <button onClick={() => handleClick("portfolio")}>Portfolio</button>
+        <button onClick={() => handleClick("career")}>Career/Background</button>
       </nav>
       <main>
         {active === "home" && <TitleCard />}
