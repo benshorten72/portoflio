@@ -1,10 +1,10 @@
 import './App.css'
-import { Canvas } from '@react-three/fiber'
+import './components/global.css'
 import { InfoCard } from "./components/InfoCard";
-import { NavigationBar } from "./components/NavigationBar";
 import BackgroundScene from "./components/BackgroundScene"
 import { useRef, useState } from 'react';
 import { TitleCard } from './components/TitleCard';
+import { PortfolioCardWrapper } from './components/PortfolioCardWrapper';
 
 const textDummy = "orem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
 
@@ -53,7 +53,7 @@ function App() {
 
       <main>
         {active === "home" && <TitleCard />}
-        {active === "portfolio" && <InfoCard cardTitle="Portfolio" cardText='lol' infoCardDimensions={dimensions} />}
+        {active === "portfolio" && <InfoCard cardTitle="Portfolio" cardText='' infoCardDimensions={dimensions}  children={<PortfolioCardWrapper/>}/>}
         {active === "career" && <InfoCard cardTitle="Career/Background" cardText='lol' infoCardDimensions={dimensions} />}
       </main>
     </>

@@ -1,0 +1,80 @@
+.PortfolioCardBox{
+    background-color: #0e0e0eb1;
+    padding: var(--size-1) var(--size-3);
+    max-width: 49%;
+    padding: 0%;
+    transition: transform 0.3s ease;
+
+    text-align: left;
+}
+.PortfolioCardBox:hover{
+    transform: scale(1.1);    
+    z-index: 10;
+}
+.PortfolioCardBox:active{
+
+  transform: scale(1.2);
+}
+.PortfolioCardBox:hover .PortfolioCardImageWrapper::after {
+  opacity: 0; 
+}
+.PortfolioCardImageWrapper {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+
+}
+.PortfolioCardImageWrapper::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.683), transparent);
+  pointer-events: none; /* so clicks pass through */
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+
+.PortfolioCardImage{
+    width: 100%; 
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    display: block;
+}
+
+.PortfolioCardTitle{
+    font-size:  var(--size-5);
+    line-height: var(--size-5);
+  letter-spacing: .05rem;
+
+}
+
+.PortfolioCardSubTitle{
+    font-size: var(--size-4);
+    color: var(--greyed-font-color);
+    font-weight: 400;
+    line-height: var(--size-3);
+  letter-spacing: .12rem;
+
+
+}
+.PortfolioCardText{
+    line-height: var(--size-6);
+    font-weight: 400;
+  letter-spacing: .1rem;
+
+}
+.PortfolioCardTextWrapper{
+    padding: 0% 2%;
+
+
+}
+.cardWrapper{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: var(--size-4);
+    height: 100%;
+    
+}

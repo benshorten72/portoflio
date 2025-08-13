@@ -4,8 +4,25 @@ nav{
 }
 nav > button{
   width: 100%;
-  margin: 0% 10%;
+  margin: 1% 10%;
+  font-size: var(--size-6);
+   background: -webkit-linear-gradient(var(--greyed-font-color),var(--greyed-font-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+    transition: transform 0.3s ease;
+
 }
+nav > button:hover{
+  background: -webkit-linear-gradient( var(--yellow-font-color),var(--orange-font-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transform: scale(1.2);
+}
+nav > button:active {
+
+  transform: scale(2);
+}
+nav>button:click
 
 main{
   padding: 0% 5%;

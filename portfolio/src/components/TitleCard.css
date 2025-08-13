@@ -5,7 +5,7 @@
     line-height: 1.2;
     letter-spacing: var(--size-1);
     width: 100%;
-    background: -webkit-linear-gradient(var(--orange-font-color), var(--yellow-font-color));
+    background: -webkit-linear-gradient( var(--yellow-font-color),var(--orange-font-color));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   display: inline-block;
