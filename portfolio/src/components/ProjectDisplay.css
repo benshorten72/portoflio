@@ -10,21 +10,24 @@ padding-bottom: 2%;
   background: rgba(126, 121, 104, 0.259);
   display: block;
   z-index: 9998;
-  
+    transform: scale(0);
+  opacity: 0;
+  animation: reveal .2s ease-in forwards;
 }
 .wrapperBody{
   width: 100%;
   height: 100%;
   background: rgba(21, 14, 12);
   z-index: 9999;
-  padding: auto;
-  transform: scale(0);
-  animation: reveal .2s ease-in forwards;
+
   display: flex;
-  padding: 5%;
+  padding: 3%5%5%5%;
+  overflow: scroll;
+  
 }
 @keyframes reveal {
   to {
+    opacity: 1;
     transform: scale(1); 
   }
 }
@@ -38,23 +41,64 @@ padding-bottom: 2%;
   font-family: var(--sub-font);
   letter-spacing: var(--size-1);
   font-weight: 300;
-  line-height: var(--size-3);
+  line-height: var(--size-8);
 }
 .displaySubTitle{
     color: var(--greyed-font-color);
+    font-size: var(--size-6);
     font-weight:bold}
+    
 .displayText > p{
   font-size: var(--size-5);
   line-height: var(--size-7);
 }
 .displayImage{
-  height: auto;
-  width: 35%;
-  padding-top: 20%;
+  height: 60%;
+  width: auto;
+  margin-top: 10%;
   margin-right: 5%;
+  margin-bottom: 10%;
+  animation: slideRight .5s ease-in-out forwards;
+  border: solid #8b8584 8px;
+}
 
+@keyframes slideRight {
+  from {
+          transform: scale(.5); 
+
+  }
+  to {
+    transform: scale(1); 
+
+  }
 }
 .wrapperBody > button{
   height: 50px;
-  width: 5%;
+  width: fit-content;
+  overflow: visible;
+  display: block;
+  text-align: left;
+  padding: 0%;
+}
+@keyframes slide {
+  to {
+    transform: scale(1); 
+  }
+}
+.wrapperBody > button{
+  font-size: var(--size-6);
+   background: -webkit-linear-gradient(var(--greyed-font-color),var(--greyed-font-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+    transition: transform 0.3s ease;
+}
+.wrapperBody > button:hover{
+  background: -webkit-linear-gradient( var(--yellow-font-color),var(--orange-font-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transform: scale(1.05);
+}
+.wrapperBody > button:active {
+
+  transform: scale(1.4);
 }

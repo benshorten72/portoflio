@@ -35,3 +35,37 @@ body{
 * {
   box-sizing: border-box;
 }
+
+
+footer > div> a > img{
+  width: 100%;
+  height: auto;
+  margin-left: 10%;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  text-align: left;
+  padding: 10%;
+  filter: brightness(.8);
+  filter: opacity(.5);
+
+}
+footer > div> a > img:hover{
+    transform: scale(1.1);    
+    z-index: 10;
+  filter: brightness(1.50);
+  filter: opacity(1);
+}
+footer > div> a > img:active{
+  transform: scale(1.2);
+}
+footer > div{
+ width: 8%;
+ margin-left: 89%;
+ display: flex;
+ gap: 10%;
+}
+footer{
+  left: 0;
+  bottom: 0;
+  position: fixed;
+  width: 100%;
+}

@@ -1,0 +1,26 @@
+.careerBackground > h2{
+    font-size: var(--size-7);
+    font-weight: 400;
+    line-height: var(--size-3);
+}
+.careerBackground > h3{
+    font-size: var(--size-6);
+    font-weight: 500;
+    line-height: var(--size-6);
+}
+.careerBackground > h4{
+    color: var(--greyed-font-color);
+    font-family: var(--sub-font);
+    font-weight: 600;
+    letter-spacing: var(--size-1);
+    line-height: var(--size-3);
+}
+.careerBackground > p, .careerBackground > ul{
+    font-size: 1.12rem;
+    font-weight: 200;
+    line-height: var(--size-6);
+    letter-spacing: .02rem;
+}
+.careerBackground > ul >li{
+    margin-bottom: 1%;
+}

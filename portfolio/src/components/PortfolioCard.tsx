@@ -25,7 +25,7 @@ export const PortfolioCard = ({ cardTitle, cardSubTitle, cardImageSrc, cardText,
         <>
             <button className="PortfolioCardBox" onClick={() => handleClick(true)}>
                 <div className="PortfolioCardImageWrapper">
-                    <img className="PortfolioCardImage" src={cardImageSrc} />
+                    <img className="PortfolioCardImage" src={cardImageSrc+".png"} />
                 </div>
                 <div className="PortfolioCardTextWrapper">
                     <h2 className="PortfolioCardTitle">{cardTitle}</h2>
