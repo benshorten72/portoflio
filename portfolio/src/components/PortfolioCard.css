@@ -1,19 +1,21 @@
 .PortfolioCardBox{
     background-color: #0e0e0eb1;
     padding: var(--size-1) var(--size-3);
-    max-width: 49%;
+    max-width: 100%;
     padding: 0%;
     transition: transform 0.3s ease;
-
+    width: 100%;
     text-align: left;
 }
 .PortfolioCardBox:hover{
     transform: scale(1.1);    
     z-index: 10;
+    background-color: #0e0e0e;
 }
 .PortfolioCardBox:active{
 
   transform: scale(1.2);
+  
 }
 .PortfolioCardBox:hover .PortfolioCardImageWrapper::after {
   opacity: 0; 
@@ -78,3 +80,5 @@
     height: 100%;
     
 }
+
+

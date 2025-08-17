@@ -12,6 +12,7 @@ export const PortfolioCardWrapper = () => {
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt, sapiente. Optio tenetur rem quod id eveniet labore laborum nemo, numquam necessitatibus vitae dolorum dicta. Tempore atque doloremque similique dicta consectetur.
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt, sapiente. Optio tenetur rem quod id eveniet labore laborum nemo, numquam necessitatibus vitae dolorum dicta. Tempore atque doloremque similique dicta consectetur.
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt, sapiente. Optio tenetur rem quod id eveniet labore laborum nemo, numquam necessitatibus vitae dolorum dicta. Tempore atque doloremque similique dicta consectetur."
+            githubLink='https://github.com/colmmurphyxyz/CS3305-2024-Team-2'
         />
         <PortfolioCard 
             cardTitle='Distributed IoT Testbed to Perform Split-Fed Learning' 
@@ -22,6 +23,7 @@ export const PortfolioCardWrapper = () => {
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt, sapiente. Optio tenetur rem quod id eveniet labore laborum nemo, numquam necessitatibus vitae dolorum dicta. Tempore atque doloremque similique dicta consectetur.
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt, sapiente. Optio tenetur rem quod id eveniet labore laborum nemo, numquam necessitatibus vitae dolorum dicta. Tempore atque doloremque similique dicta consectetur.
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt, sapiente. Optio tenetur rem quod id eveniet labore laborum nemo, numquam necessitatibus vitae dolorum dicta. Tempore atque doloremque similique dicta consectetur."
+            githubLink='https://github.com/benshorten72/FYP'
         />
         <PortfolioCard 
             cardTitle='Cat World' 
@@ -32,7 +34,8 @@ export const PortfolioCardWrapper = () => {
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt, sapiente. Optio tenetur rem quod id eveniet labore laborum nemo, numquam necessitatibus vitae dolorum dicta. Tempore atque doloremque similique dicta consectetur.
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt, sapiente. Optio tenetur rem quod id eveniet labore laborum nemo, numquam necessitatibus vitae dolorum dicta. Tempore atque doloremque similique dicta consectetur.
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt, sapiente. Optio tenetur rem quod id eveniet labore laborum nemo, numquam necessitatibus vitae dolorum dicta. Tempore atque doloremque similique dicta consectetur."
-        />
+            githubLink='https://github.com/benshorten72/cat-world'
+       />
         <PortfolioCard 
             cardTitle='Portfolio Website' 
             cardSubTitle='Personal Project' 
@@ -42,6 +45,7 @@ export const PortfolioCardWrapper = () => {
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt, sapiente. Optio tenetur rem quod id eveniet labore laborum nemo, numquam necessitatibus vitae dolorum dicta. Tempore atque doloremque similique dicta consectetur.
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt, sapiente. Optio tenetur rem quod id eveniet labore laborum nemo, numquam necessitatibus vitae dolorum dicta. Tempore atque doloremque similique dicta consectetur.
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt, sapiente. Optio tenetur rem quod id eveniet labore laborum nemo, numquam necessitatibus vitae dolorum dicta. Tempore atque doloremque similique dicta consectetur."
+            githubLink='https://github.com/benshorten72/portoflio'
         />
 
         </div>

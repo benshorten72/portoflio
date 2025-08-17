@@ -2,7 +2,7 @@ import { createPortal } from "react-dom";
 import "./ProjectDisplay.css";
 import { useEffect, useState, type ReactNode } from "react";
 
-export const ProjectDisplay = ({ onClose, cardTitle, imgSrc, children = null, displayText, cardSubTitle }: { onClose: () => void, children?: ReactNode, cardTitle: string, imgSrc: string, displayText: string, cardSubTitle: string }) => {
+export const ProjectDisplay = ({ onClose, cardTitle, imgSrc, children = null, displayText, cardSubTitle, githubLink }: { onClose: () => void, children?: ReactNode, cardTitle: string, imgSrc: string, displayText: string, cardSubTitle: string, githubLink:string }) => {
   const [animate, setAnimate] = useState(false);
 
   return createPortal(
@@ -21,6 +21,7 @@ export const ProjectDisplay = ({ onClose, cardTitle, imgSrc, children = null, di
 
           <h3 className="displaySubTitle">{cardSubTitle}</h3>
           <p>{displayText}</p>
+          <a href={githubLink}>Link To Github</a>
         </div>
         <img className="displayImage" src={imgSrc+".gif"} />
         <button onClick={() => {

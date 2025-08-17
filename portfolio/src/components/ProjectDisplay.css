@@ -102,3 +102,16 @@ padding-bottom: 2%;
 
   transform: scale(1.4);
 }
+
+a{
+  color: white;
+  font-family: var(--sub-font);
+  font-weight: 100;
+  letter-spacing: 2px;
+  padding: 4%;
+}
+
+a:active{
+color:(--orange-font-color);
+transform: scale(1.4);
+}

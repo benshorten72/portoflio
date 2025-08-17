@@ -10,8 +10,9 @@ type PortfolioCardProps = {
     cardText:string,
     children?: ReactNode,
     displayText:string
+    githubLink:string
 }
-export const PortfolioCard = ({ cardTitle, cardSubTitle, cardImageSrc, cardText, children, displayText }: PortfolioCardProps) => {
+export const PortfolioCard = ({ cardTitle, cardSubTitle, cardImageSrc, cardText, children, displayText, githubLink }: PortfolioCardProps) => {
     const [showCard, setShowCard] = useState(false);
     const [triggerDisplayCard, setTriggerDisplayCard] = useState(0);
 
@@ -34,7 +35,7 @@ export const PortfolioCard = ({ cardTitle, cardSubTitle, cardImageSrc, cardText,
                 </div>
             </button>
 
-            {showCard && <ProjectDisplay onClose={() => setShowCard(false)} key={triggerDisplayCard} cardTitle={cardTitle} imgSrc={cardImageSrc} displayText={displayText} cardSubTitle={cardSubTitle}/>}
+            {showCard && <ProjectDisplay onClose={() => setShowCard(false)} key={triggerDisplayCard} cardTitle={cardTitle} imgSrc={cardImageSrc} displayText={displayText} cardSubTitle={cardSubTitle} githubLink={githubLink}/>}
         </>
     );
 };
