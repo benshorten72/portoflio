@@ -5,10 +5,10 @@ export const Career = () => {
         <div className='careerBackground'>
 <h2>Background</h2>
 <p>
-    I studied <b>Computer Science</b> in <i>University College</i> Cork <i>from 2021 - 2025.</i> 
+    I studied <b>Computer Science</b> in <i>University College</i> Cork <i>from 2021 - 2025. </i> 
     I finished college in May and will be officially graduating with an (expected) 2:1 degree in November 2025. 
-    I spent most of college working part-time in bars/restaurants within Cork, learning 
-    <b>invaluable team skills and the ability to work under high pressure.</b>
+    I spent most of college working part-time in bars/restaurants within Cork, learning
+    <b> invaluable team skills and the ability to work under high pressure.</b>
 </p>
 <hr></hr>
 <h2>Career</h2>
