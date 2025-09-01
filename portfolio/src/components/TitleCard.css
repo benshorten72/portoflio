@@ -49,15 +49,6 @@
   .TitleCardText,
   .TitleCardSubText {
     line-height: var(--size-10);
+    text-wrap: wrap;
   }
-
-
-
-}
-
-
-@media (max-width:1641px){
-  .TitleCardText{
-    overflow: visible;   
-  white-space:wrap;       }
 }
